@@ -1,11 +1,14 @@
 
-import { COURSE_IDS, findCourseById } from "../../shared/courses.ts";
+// GET /api/courses/{id} -> served at /functions/apiCourseById?id={id}
+// Returns one course by its ID.
+
+import { COURSE_IDS, findCourseById } from "../shared/courses.ts";
 import {
   isReadable,
   jsonError,
   methodNotAllowed,
   methodOf,
-} from "../../shared/http.ts";
+} from "../shared/http.ts";
 
 export default async function (req) {
   try {
@@ -16,6 +19,7 @@ export default async function (req) {
     if (rawId === null && methodOf(req) === "POST") {
       const body = await req.json().catch(() => ({}));
       const candidate = body?.id ?? body?.courseId;
+
       if (candidate !== undefined && candidate !== null) {
         rawId = String(candidate);
       }
