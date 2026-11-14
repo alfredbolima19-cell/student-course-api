@@ -3,7 +3,7 @@
 // check. Read-only by design — only GET (and HEAD, plus POST used by the
 // platform's own client) reach the body.
 
-import { isReadable, methodNotAllowed } from "../../shared/http.ts";
+import { isReadable, methodNotAllowed } from "../shared/http.ts";
 
 export default async function (req) {
   try {
