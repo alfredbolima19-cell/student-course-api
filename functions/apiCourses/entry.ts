@@ -2,8 +2,8 @@
 // GET /api/courses -> served at /functions/apiCourses
 // Returns the whole catalog as a plain JSON array (no wrapper object).
 
-import { COURSES } from "../../shared/courses.ts";
-import { isReadable, methodNotAllowed } from "../../shared/http.ts";
+import { COURSES } from "../shared/courses.ts";
+import { isReadable, methodNotAllowed } from "../shared/http.ts";
 
 export default async function (req) {
   try {
