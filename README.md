@@ -1,74 +1,70 @@
+
 # Student Course API
 
 ## Project Overview
 
-Student Course API is a read-only backend project created using Base44. It provides information about fictional university courses through backend functions that return JSON responses.
+Student Course API is a read-only backend project created with Base44 for Assignment 3 - System Integration and Architecture. It provides JSON responses containing fictional university course information.
 
-This project was developed for Assignment 3 - System Integration and Architecture.
+The course data is stored in a shared TypeScript file. This is a demonstration API and does not connect to a live student database.
 
-## Backend Functions
+## Live Deployment
 
-| Function | Purpose |
-|---|---|
-| `apiHealth` | Checks whether the API is running. |
-| `apiCourses` | Returns the list of available courses. |
-| `apiCourseById` | Returns a specific course using its ID. |
+Base44 application:
 
-## API Endpoints
+https://sparkling-study-path-api.base44.app
 
-| Endpoint | Description |
-|---|---|
-| `/functions/apiHealth` | Health check |
-| `/functions/apiCourses` | Retrieve all courses |
-| `/functions/apiCourseById?id=1` | Retrieve course with ID 1 |
-| `/functions/apiCourseById?id=9999` | Test an invalid course ID |
+## Backend Functions and Endpoints
+
+| Function | Endpoint | Purpose |
+|---|---|---|
+| apiHealth | /functions/apiHealth | Checks API status |
+| apiCourses | /functions/apiCourses | Returns all six sample courses |
+| apiCourseById | /functions/apiCourseById?id=1 | Returns one course by ID |
+
+### Example URLs
+
+- Health check: https://sparkling-study-path-api.base44.app/functions/apiHealth
+- All courses: https://sparkling-study-path-api.base44.app/functions/apiCourses
+- Course ID 1: https://sparkling-study-path-api.base44.app/functions/apiCourseById?id=1
+- Invalid course ID: https://sparkling-study-path-api.base44.app/functions/apiCourseById?id=9999
 
 ## Technologies Used
 
-- Base44
-- JavaScript / TypeScript
-- React
-- Vite
-- Tailwind CSS
-- Base44 SDK
+- Base44 backend functions
+- TypeScript
+- JSON
 
 ## Project Structure
 
 ```text
 student-course-api/
-├── functions/
-│   ├── apiHealth/
-│   │   └── entry.ts
-│   ├── apiCourses/
-│   │   └── entry.ts
-│   ├── apiCourseById/
-│   │   └── entry.ts
-│   └── shared/
-│       ├── courses.ts
-│       └── http.ts
-├── src/
-│   ├── api/
-│   ├── components/
-│   ├── pages/
-│   ├── App.jsx
-│   └── main.jsx
-└── README.md
+├── README.md
+└── functions/
+    ├── apiCourseById/
+    │   └── entry.ts
+    ├── apiCourses/
+    │   └── entry.ts
+    ├── apiHealth/
+    │   └── entry.ts
+    └── shared/
+        ├── courses.ts
+        └── http.ts
 ```
 
 ## Testing
 
-The following backend function tests were performed:
+The following tests were performed:
 
 1. Health check — successful.
-2. Course list — successful.
+2. Courses endpoint — successful.
 3. Valid course ID — successful.
-4. Invalid course ID — returned HTTP 404 as expected.
+4. Invalid course ID (9999) — returned HTTP 404 as expected.
 
-## Important Note
+## Implementation Note
 
-This project uses Base44 backend functions and its `/functions/` endpoint structure. It does not use the original Python Flask `/api/` routes specified in the Lesson 3 example.
+This repository contains a Base44 implementation using `/functions/` routes. It is not the Python Flask implementation using `/api/health`, `/api/courses`, and `/api/courses/<id>` from the original Lesson 3 example.
 
-The source code must be included in the repository separately.
+If the assignment specifically requires Flask and those exact routes, this Base44 version is an alternative implementation and may need to be adapted.
 
 ## Author
 
